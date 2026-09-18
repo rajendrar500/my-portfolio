@@ -1,17 +1,17 @@
 export const ABOUT_HERO_STATS = [
   { value: "8+ Years", label: "Software Development Experience" },
   { value: "Global Remote", label: "Collaborating Across Timezones" },
-  { value: "Full-Stack & AI", label: "Production Architectures" },
+  { value: "Rails & Python", label: "Full-Stack Production Delivery" },
 ] as const;
 
 export const ABOUT_HERO_FOCUS_BADGES = [
   "Ruby on Rails",
-  "React.js",
-  "TypeScript",
-  "Node.js",
   "Python / FastAPI",
-  "AI / LLMs",
-  "DevOps",
+  "React.js",
+  "PostgreSQL",
+  "AWS",
+  "Stripe / APIs",
+  "AI / GenAI",
 ] as const;
 
 export type AboutTrustAccent = "purple" | "emerald" | "indigo" | "amber";
@@ -31,7 +31,7 @@ export const ABOUT_TRUST_ITEMS: AboutTrustItem[] = [
     title: "Remote & global delivery",
     lead: "8+ years",
     body:
-      "of remote experience shipping SaaS, APIs, and AI-powered products for startups and product teams worldwide.",
+      "of remote experience shipping SaaS, APIs, and production web applications for startups and product teams worldwide.",
     detail:
       "Strong {{async communication}}, clear written updates, and reliable overlap with {{US / EU time zones}} when needed.",
     accent: "purple",
@@ -41,9 +41,9 @@ export const ABOUT_TRUST_ITEMS: AboutTrustItem[] = [
     title: "Quality & reliability",
     lead: "Production-grade",
     body:
-      "security practices, automated testing, and observability built into every engagement—not bolted on at the end.",
+      "REST APIs, automated testing, and observability built into every engagement—not bolted on at the end.",
     detail:
-      "{{Rails tests}}, {{API validation}}, linting, and {{production troubleshooting}} to keep releases stable.",
+      "{{RSpec / Pytest}}, {{API validation}}, and {{production troubleshooting}} to keep releases stable.",
     accent: "emerald",
   },
   {
@@ -51,7 +51,7 @@ export const ABOUT_TRUST_ITEMS: AboutTrustItem[] = [
     title: "Full-stack ownership",
     lead: "End-to-end execution",
     body:
-      "from database schema and backend APIs to React frontends, integrations, and deployment-ready delivery.",
+      "from database schema and backend APIs to React frontends, integrations, payments, and deployment-ready delivery.",
     detail:
       "One senior engineer across the stack — move faster with {{fewer handoffs}} and {{less rework}}.",
     accent: "indigo",
@@ -71,27 +71,27 @@ export const ABOUT_TRUST_ITEMS: AboutTrustItem[] = [
 export const ABOUT_CORE_SKILLS = [
   {
     title: "Full-Stack Engineering",
-    tags: ["Ruby on Rails", "React", "TypeScript", "Node.js"],
+    tags: ["Ruby on Rails", "React.js", "TypeScript", "Node.js"],
   },
   {
-    title: "AI & LLM Integrations",
-    tags: ["Prompt Engineering", "Generative AI", "LLM APIs", "RAG"],
-  },
-  {
-    title: "Python Ecosystem",
+    title: "Python Backend",
     tags: ["FastAPI", "Flask", "Django", "Microservices"],
   },
   {
-    title: "DevOps & Cloud",
-    tags: ["Docker", "CI/CD", "AWS", "Production Ops"],
+    title: "AI / GenAI",
+    tags: ["LLMs", "RAG", "LangGraph", "OpenAI APIs"],
   },
   {
-    title: "Backend & Database Architecture",
-    tags: ["REST APIs", "PostgreSQL", "Scalable Systems"],
+    title: "Cloud & DevOps",
+    tags: ["AWS", "Docker", "Kubernetes", "CI/CD"],
   },
   {
-    title: "Technical Leadership & Clean Code",
-    tags: ["Code Reviews", "Mentoring", "Architecture"],
+    title: "Data & APIs",
+    tags: ["PostgreSQL", "MongoDB", "REST APIs", "Stripe"],
+  },
+  {
+    title: "Quality & Delivery",
+    tags: ["RSpec", "Pytest", "Code Reviews", "Multi-Tenant SaaS"],
   },
 ] as const;
 
@@ -105,51 +105,61 @@ export type AboutExperienceRole = {
 
 export const ABOUT_EXPERIENCE: AboutExperienceRole[] = [
   {
-    company: "Everbee (contract)",
-    title: "Senior Software Developer",
-    period: "2024 – 2026",
+    company: "Upwork",
+    title: "Full Stack Developer | Full-Time Freelancer",
+    period: "Sep 2026 – Present",
     location: "Remote",
     bullets: [
-      "Owned full-stack delivery of production web applications and APIs using Ruby on Rails, React, Python, and PostgreSQL in a fast-moving product environment.",
-      "Integrated AI/LLM capabilities into live application workflows, supporting prompt-based features and generative AI use cases.",
-      "Built and maintained reliable backend services, REST APIs, and background processing for production systems.",
-      "Improved application quality through automated testing, API testing, debugging, and production troubleshooting.",
-      "Collaborated with cross-functional teams to translate requirements into shippable features and maintain stable releases.",
-      "Supported CI/CD, Docker-based workflows, and ongoing production maintenance for business-critical applications.",
+      "Develop web applications and REST APIs using Python, Ruby on Rails, Node.js, and React.js.",
+      "Build backend services, business logic, database integrations, authentication, and third-party integrations.",
+      "Develop reusable React.js components and full-stack features end to end.",
+      "Work with clients on requirements, technical solutions, estimation, development, testing, and delivery.",
+      "Handle debugging, performance optimization, deployment, and production support with Git, Docker, CI/CD, and cloud platforms.",
+    ],
+  },
+  {
+    company: "Everbee",
+    title: "Senior Full Stack Developer | Contract",
+    period: "Sep 2024 – Aug 2026",
+    location: "Remote",
+    bullets: [
+      "Developed full-stack applications using Ruby on Rails, React.js, and Python.",
+      "Designed REST APIs, backend services, authentication, authorization, and third-party integrations.",
+      "Built React.js features and optimized PostgreSQL schemas, queries, relationships, and indexes.",
+      "Implemented background processing and asynchronous workflows with job-processing systems.",
+      "Worked with AWS, Docker, CI/CD, monitoring, and production deployments; resolved production issues and delivered features with Agile teams.",
     ],
   },
   {
     company: "Natureglobal",
-    title: "Senior Software Engineer",
-    period: "2020 – 2024",
+    title: "Senior Software Developer",
+    period: "Aug 2020 – Jul 2024",
     location: "Remote",
     bullets: [
-      "Delivered full-stack SaaS and product engineering using Ruby on Rails, React, Python, Node.js, and REST APIs across complex business domains.",
-      "Designed and implemented backend systems, API integrations, and application features for production customer-facing products.",
-      "Worked with AI/LLM and modern software technologies to extend product capabilities and improve user-facing workflows.",
-      "Reviewed system behavior, identified defects, and resolved production issues through root-cause analysis and quality-focused debugging.",
-      "Partnered with development teams and stakeholders to clarify requirements and ship maintainable, scalable application code.",
-      "Contributed to testing, validation, deployment readiness, and long-term maintainability of production platforms.",
+      "Developed scalable backend applications and REST APIs using Python, Node.js, and React.js.",
+      "Implemented business logic, authentication, authorization, data validation, and third-party API integrations.",
+      "Built React.js frontend features integrated with REST APIs.",
+      "Designed and optimized PostgreSQL databases, queries, indexes, and data models.",
+      "Built asynchronous workflows and background processing; supported Docker, Linux, CI/CD, and production operations.",
     ],
   },
   {
     company: "Kangaroo Software",
-    title: "Software Engineer",
-    period: "2018 – 2020",
+    title: "Software Developer",
+    period: "Jun 2018 – Jul 2020",
     location: "India",
     bullets: [
-      "Built web applications and REST APIs with focus on data handling, validation, and dependable backend behavior.",
-      "Developed core product features and backend integrations while working within defined functional requirements.",
-      "Performed functional testing, debugging, and defect resolution to improve application reliability.",
-      "Supported API development and data validation workflows for production-facing software systems.",
-      "Established strong foundations in software delivery, requirement analysis, and collaborative engineering practices.",
+      "Developed web applications using Ruby on Rails, React.js, and JavaScript.",
+      "Designed REST APIs, validations, authentication, and database workflows.",
+      "Built reusable React.js components and integrated third-party APIs.",
+      "Maintained PostgreSQL schemas, queries, and indexes; wrote tests and supported production fixes.",
     ],
   },
 ];
 
 export const ABOUT_EDUCATION = {
-  degree: "B.Tech in Computer Science / Engineering",
-  institution: "Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV), Bhopal, MP, India",
+  degree: "",
+  institution: "RGPV University, Bhopal",
   years: "2014 – 2018",
 };
 
