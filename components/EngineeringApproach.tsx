@@ -1,7 +1,7 @@
 "use client";
 
 import type { LucideIcon } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Code2, Compass, Rocket, Search, Sparkles } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
@@ -31,7 +31,7 @@ const gradientPhraseClassName =
   "bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(168,85,247,0.3)]";
 
 const badgeClassName =
-  "mb-5 inline-flex items-center gap-2 rounded-full border border-purple-500/40 bg-purple-500/15 px-5 py-2 text-xs font-bold uppercase tracking-widest text-purple-300 shadow-[0_0_25px_rgba(168,85,247,0.3)] sm:text-sm";
+  "mb-3 inline-flex items-center gap-2 rounded-full border border-purple-500/40 bg-purple-500/15 px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-purple-300 shadow-[0_0_25px_rgba(168,85,247,0.3)] sm:mb-5 sm:px-5 sm:py-2 sm:text-sm";
 
 function TypewriterHeading() {
   const [displayed, setDisplayed] = useState("");
@@ -59,7 +59,7 @@ function TypewriterHeading() {
 
   return (
     <h2
-      className="mb-4 min-h-[1.2em] text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl"
+      className="mb-2 min-h-[1.2em] text-2xl font-extrabold tracking-tight text-white sm:mb-4 sm:text-4xl lg:text-5xl"
       aria-label={TYPEWRITER_HEADING}
     >
       <span aria-hidden="true">
@@ -90,20 +90,21 @@ const cardVariants = {
 };
 
 const cardClassName =
-  "group relative overflow-hidden rounded-2xl border border-purple-500/10 bg-zinc-900/40 p-6 text-left backdrop-blur-md transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_35px_rgba(168,85,247,0.2)]";
+  "group relative overflow-hidden rounded-xl border border-purple-500/10 bg-zinc-900/40 p-3.5 text-left backdrop-blur-md transition-all duration-300 sm:rounded-2xl sm:p-6 motion-safe:max-sm:hover:border-purple-500/10 motion-safe:max-sm:hover:shadow-none sm:hover:border-purple-500/50 sm:hover:shadow-[0_0_35px_rgba(168,85,247,0.2)]";
 
 const iconWrapperClassName =
-  "mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-purple-500/40 bg-gradient-to-br from-purple-600/30 to-indigo-600/20 text-purple-300 shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300 group-hover:scale-110 group-hover:border-purple-400 group-hover:shadow-[0_0_25px_rgba(168,85,247,0.5)]";
+  "mb-2.5 flex h-10 w-10 items-center justify-center rounded-lg border border-purple-500/40 bg-gradient-to-br from-purple-600/30 to-indigo-600/20 text-purple-300 shadow-[0_0_16px_rgba(168,85,247,0.25)] transition-all duration-300 sm:mb-4 sm:h-12 sm:w-12 sm:rounded-xl sm:shadow-[0_0_20px_rgba(168,85,247,0.3)] motion-safe:sm:group-hover:scale-110 motion-safe:sm:group-hover:border-purple-400";
 
 const stepBadgeClassName =
   "rounded-full border border-purple-500/30 bg-purple-500/15 px-2.5 py-0.5 font-mono text-xs font-bold text-purple-300 transition-colors group-hover:bg-purple-500/30";
 
 const highlightToneClass = {
   purple:
-    "font-semibold text-purple-300 bg-purple-500/10 px-1 py-0.5 rounded border border-purple-500/20",
+    "font-semibold text-purple-300 max-sm:inline max-sm:px-0 max-sm:py-0 max-sm:border-0 max-sm:bg-transparent sm:bg-purple-500/10 sm:px-1 sm:py-0.5 sm:rounded sm:border sm:border-purple-500/20",
   indigo:
-    "font-semibold text-indigo-300 bg-indigo-500/10 px-1 py-0.5 rounded border border-indigo-500/20",
-  pink: "font-semibold text-pink-300 bg-pink-500/10 px-1 py-0.5 rounded border border-pink-500/20",
+    "font-semibold text-indigo-300 max-sm:inline max-sm:px-0 max-sm:py-0 max-sm:border-0 max-sm:bg-transparent sm:bg-indigo-500/10 sm:px-1 sm:py-0.5 sm:rounded sm:border sm:border-indigo-500/20",
+  pink:
+    "font-semibold text-pink-300 max-sm:inline max-sm:px-0 max-sm:py-0 max-sm:border-0 max-sm:bg-transparent sm:bg-pink-500/10 sm:px-1 sm:py-0.5 sm:rounded sm:border sm:border-pink-500/20",
 } as const;
 
 type HighlightTone = keyof typeof highlightToneClass;
@@ -165,9 +166,11 @@ const PRINCIPLES: {
 ];
 
 export function EngineeringApproach() {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <section className="px-4 pt-6 pb-14 sm:px-8 sm:pt-8 sm:pb-20">
-      <div className="mx-auto max-w-7xl px-6 text-center">
+    <section className="px-3 pt-4 pb-4 sm:px-6 sm:pt-8 sm:pb-14 md:px-8 md:pb-20">
+      <div className="mx-auto max-w-7xl text-center">
         <motion.div
           className="mx-auto max-w-3xl"
           initial="hidden"
@@ -205,7 +208,7 @@ export function EngineeringApproach() {
         </motion.div>
 
         <motion.div
-          className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
+          className="mt-5 grid grid-cols-1 gap-3 sm:mt-10 sm:gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-4"
           variants={gridContainer}
           initial="hidden"
           whileInView="visible"
@@ -215,7 +218,9 @@ export function EngineeringApproach() {
             <motion.article
               key={title}
               variants={cardVariants}
-              whileHover={{ y: -6, scale: 1.02 }}
+              whileHover={
+                reduceMotion ? undefined : { y: -6, scale: 1.02 }
+              }
               transition={{ type: "spring", stiffness: 320, damping: 22 }}
               className={cardClassName}
             >
@@ -223,14 +228,16 @@ export function EngineeringApproach() {
                 className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-purple-500/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
                 aria-hidden="true"
               />
-              <span className={cn("absolute right-4 top-4", stepBadgeClassName)}>{step}</span>
+              <span className={cn("absolute right-3 top-3 sm:right-4 sm:top-4", stepBadgeClassName)}>
+                {step}
+              </span>
               <div className={iconWrapperClassName}>
                 <Icon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
               </div>
-              <h3 className="mb-3 text-xl font-bold text-white transition-colors group-hover:text-purple-200">
+              <h3 className="mb-1.5 pr-9 text-base font-bold text-white transition-colors sm:mb-3 sm:pr-12 sm:text-xl sm:group-hover:text-purple-200">
                 {title}
               </h3>
-              <p className="text-sm leading-relaxed text-zinc-400">{description}</p>
+              <p className="text-[13px] leading-relaxed text-zinc-400 sm:text-sm">{description}</p>
             </motion.article>
           ))}
         </motion.div>

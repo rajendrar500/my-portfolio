@@ -61,7 +61,7 @@ const nodeClassName =
 
 export function AboutExperienceTimeline() {
   return (
-    <section id="experience" className="scroll-mt-24 px-4 pt-14 pb-4 sm:px-8 sm:pt-20 sm:pb-6">
+    <section id="experience" className="scroll-mt-24 px-0 pt-10 pb-4 sm:pt-20 sm:pb-6">
       <Container>
         <motion.div
           className="max-w-2xl"

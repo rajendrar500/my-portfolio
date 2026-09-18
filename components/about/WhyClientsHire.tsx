@@ -43,8 +43,8 @@ function TrustDetailNote({ text }: { text: string }) {
     <p
       className={cn(
         detailScript.className,
-        "mt-3 flex-1 rounded-lg border border-purple-500/15 bg-purple-500/[0.06] px-3 py-2 leading-snug text-purple-100/90",
-        "max-lg:font-sans max-lg:text-xs max-lg:italic",
+        "mt-3 flex-1 rounded-lg border border-purple-500/15 bg-purple-500/[0.06] px-3 py-2.5 leading-relaxed text-purple-100/90",
+        "max-lg:font-sans max-lg:text-sm max-lg:italic",
         "lg:text-[1.15rem] lg:not-italic"
       )}
     >
@@ -155,7 +155,7 @@ const cardMotionReduced = {
 function AnimatedTitle({ reduceMotion }: { reduceMotion: boolean | null }) {
   return (
     <motion.h2
-      className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-3xl font-extrabold tracking-tight sm:gap-x-3 sm:text-4xl lg:text-5xl"
+      className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-2xl font-extrabold tracking-tight sm:gap-x-3 sm:text-4xl lg:text-5xl"
       variants={titleWordContainer}
     >
       {TITLE_WORDS.map((word) => (
@@ -190,7 +190,7 @@ function TrustCard({
       whileHover={reduceMotion ? undefined : { y: -6, scale: 1.02 }}
       transition={{ type: "spring", stiffness: 360, damping: 26 }}
       className={cn(
-        "group relative flex h-full min-h-[320px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 p-5 backdrop-blur-md transition-all duration-300 sm:min-h-[340px] md:p-6",
+        "group relative flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 p-4 backdrop-blur-md transition-all duration-300 sm:min-h-[300px] sm:p-5 md:p-6 lg:min-h-[320px]",
         accent.hoverBorder,
         accent.hoverShadow
       )}
@@ -224,7 +224,7 @@ export function WhyClientsHire() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative px-4 pt-14 pb-8 sm:px-8 sm:pt-20 sm:pb-10">
+    <section className="relative border-t border-purple-500/10 px-3 pt-6 pb-8 sm:border-t-0 sm:px-6 sm:pt-16 sm:pb-10 md:px-8 md:pt-20">
       <div
         className="pointer-events-none absolute left-1/2 top-1/4 -z-10 h-[min(520px,85vw)] w-[min(900px,95vw)] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.12),transparent_65%)]"
         aria-hidden="true"
@@ -240,7 +240,7 @@ export function WhyClientsHire() {
           >
             <AnimatedTitle reduceMotion={reduceMotion} />
             <motion.p
-              className="mt-4 bg-gradient-to-r from-purple-200 via-pink-200 to-indigo-300 bg-clip-text text-xl font-semibold tracking-tight text-transparent sm:text-2xl"
+              className="mt-3 bg-gradient-to-r from-purple-200 via-pink-200 to-indigo-300 bg-clip-text text-lg font-semibold tracking-tight text-transparent sm:mt-4 sm:text-2xl"
               variants={headerItem}
             >
               Trust &amp; quality guarantee
@@ -250,14 +250,13 @@ export function WhyClientsHire() {
               variants={headerItem}
             >
               Senior-level ownership without the agency overhead — built for{" "}
-              <span className="font-medium text-purple-200/90">Upwork</span>,{" "}
-              <span className="font-medium text-fuchsia-200/90">LinkedIn</span>, and long-term product
+              <span className="font-medium text-purple-200/90">Upwork</span> and long-term product
               partnerships.
             </motion.p>
           </motion.header>
 
           <motion.ul
-            className="mt-8 grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-5"
+            className="mt-6 grid grid-cols-1 items-stretch gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-5"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
