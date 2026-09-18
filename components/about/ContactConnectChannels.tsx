@@ -2,39 +2,32 @@
 
 import { useEffect, useState } from "react";
 import type { IconType } from "react-icons";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { SiUpwork } from "react-icons/si";
 import { IconArrowUpRight } from "@/components/icons";
-import { GITHUB_PROFILE_URL, LINKEDIN_PROFILE_URL, UPWORK_PROFILE_URL } from "@/lib/site-config";
+import { GITHUB_PROFILE_URL, UPWORK_PROFILE_URL } from "@/lib/site-config";
 import { cn } from "@/lib/cn";
 
 const CHANNELS: {
   Icon: IconType;
   label: string;
   description: string;
-  href: string | null;
+  href: string;
   floatDelay: string;
 }[] = [
   {
     Icon: FaGithub,
     label: "GitHub",
-    description: "Explore my code and contributions",
-    href: GITHUB_PROFILE_URL,
+    description: "Explore my code and portfolio repositories",
+    href: GITHUB_PROFILE_URL!,
     floatDelay: "0s",
   },
   {
     Icon: SiUpwork,
     label: "Upwork",
-    description: "View my freelance profile and reviews",
-    href: UPWORK_PROFILE_URL,
-    floatDelay: "0.35s",
-  },
-  {
-    Icon: FaLinkedinIn,
-    label: "LinkedIn",
-    description: "Connect with me professionally",
-    href: LINKEDIN_PROFILE_URL,
-    floatDelay: "0.7s",
+    description: "Hire me for freelance and contract work",
+    href: UPWORK_PROFILE_URL!,
+    floatDelay: "0.15s",
   },
 ];
 
@@ -55,7 +48,7 @@ function ConnectCard({
   Icon: IconType;
   label: string;
   description: string;
-  href: string | null;
+  href: string;
   floatDelay: string;
   reduceMotion: boolean;
 }) {
@@ -71,19 +64,13 @@ function ConnectCard({
         <p className="text-sm font-semibold text-white">{label}</p>
         <p className="mt-0.5 text-xs leading-relaxed text-zinc-300">{description}</p>
       </div>
-      {href ? (
-        <IconArrowUpRight
-          className="shrink-0 text-zinc-400 transition-all duration-300 group-hover:translate-x-1 group-hover:text-purple-300"
-          width={18}
-          height={18}
-        />
-      ) : null}
+      <IconArrowUpRight
+        className="shrink-0 text-zinc-400 transition-all duration-300 group-hover:translate-x-1 group-hover:text-purple-300"
+        width={18}
+        height={18}
+      />
     </>
   );
-
-  if (!href) {
-    return <div className={`${cardClassName} opacity-60`}>{inner}</div>;
-  }
 
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className={cardClassName}>
@@ -105,7 +92,7 @@ export function ContactConnectChannels() {
 
   return (
     <div className="mt-6 flex flex-col gap-3">
-      {CHANNELS.filter((channel) => channel.href).map((channel) => (
+      {CHANNELS.map((channel) => (
         <ConnectCard key={channel.label} {...channel} reduceMotion={reduceMotion} />
       ))}
     </div>

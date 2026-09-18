@@ -14,7 +14,7 @@ const LINE_PAUSE_MS = 450;
 const CURSOR_HIDE_AFTER_MS = 2800;
 
 const lineMetricsClassName =
-  "block text-2xl font-extrabold leading-[1.15] tracking-tight sm:text-3xl lg:text-[2rem] lg:leading-tight xl:text-4xl";
+  "block text-[1.35rem] font-extrabold leading-[1.18] tracking-tight sm:text-2xl md:text-3xl lg:text-[2rem] lg:leading-tight xl:text-4xl";
 
 const gradientTextClassName =
   "bg-gradient-to-r from-white via-zinc-100 to-purple-300 bg-clip-text text-transparent";
@@ -103,13 +103,13 @@ export function AboutHeroTypewriterHeadline({ className }: { className?: string 
           const showCursorOnLine = showCursor && isCurrent;
 
           return (
-            <span key={line} className="relative block">
+            <span key={line} className="relative block min-w-0 max-w-full">
               <span className={cn("invisible select-none", lineMetricsClassName)} aria-hidden="true">
                 {line}
               </span>
               <span
                 className={cn(
-                  "absolute left-0 top-0 whitespace-pre",
+                  "absolute left-0 top-0 max-w-full whitespace-pre-wrap break-words sm:whitespace-pre",
                   lineMetricsClassName,
                   gradientTextClassName
                 )}

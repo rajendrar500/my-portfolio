@@ -20,7 +20,8 @@ npm run generate:resume
 ## Contact
 
 - Email: errajendra56@gmail.com
-- GitHub: [rajendrar786](https://github.com/rajendrar786)
+- GitHub: [rajendrar500](https://github.com/rajendrar500)
+- Upwork: [freelancer profile](https://www.upwork.com/freelancers/~0132a6fa98aeee11cb)
 
 ## Deploy
 

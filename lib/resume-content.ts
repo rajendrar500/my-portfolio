@@ -7,7 +7,7 @@ export const resumeHeader = {
   name: "RAJENDRA S",
   headline:
     "SENIOR FULL STACK DEVELOPER | RUBY ON RAILS | PYTHON | FASTAPI | FLASK | REACT.JS | POSTGRESQL | AWS",
-  contact: "India | errajendra56@gmail.com | GitHub: github.com/rajendrar786",
+  contact: "India | errajendra56@gmail.com | GitHub: github.com/rajendrar500",
 };
 
 export const resumeSummary =

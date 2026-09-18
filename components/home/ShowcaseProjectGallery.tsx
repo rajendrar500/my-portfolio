@@ -2,17 +2,22 @@
 
 import Image from "next/image";
 import type { ShowcaseGallerySlide } from "@/lib/home-content";
+import { ShowcaseProjectPlaceholder } from "./ShowcaseProjectPlaceholder";
 
 const THUMB_HEIGHT = "h-44 sm:h-48";
 
 export function ShowcaseProjectGallery({
   slides,
   projectName,
+  projectId,
 }: {
   slides: ShowcaseGallerySlide[];
   projectName: string;
+  projectId: string;
 }) {
-  if (slides.length === 0) return null;
+  if (slides.length === 0) {
+    return <ShowcaseProjectPlaceholder projectId={projectId} projectName={projectName} />;
+  }
 
   if (slides.length === 1) {
     const slide = slides[0];

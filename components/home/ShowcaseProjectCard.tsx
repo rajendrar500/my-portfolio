@@ -12,11 +12,15 @@ const impactBadgeClassName =
 export function ShowcaseProjectCard({ project }: { project: HomeShowcaseProject }) {
   return (
     <article
-      className="group relative flex h-full w-full flex-col rounded-3xl border border-purple-500/15 bg-zinc-900/60 p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-purple-500/60 hover:shadow-[0_0_50px_rgba(168,85,247,0.3)]"
+      className="group relative flex h-full w-full flex-col rounded-3xl border border-purple-500/15 bg-zinc-900/60 p-4 backdrop-blur-xl transition-all duration-500 sm:p-6 hover:-translate-y-2 hover:border-purple-500/60 hover:shadow-[0_0_50px_rgba(168,85,247,0.3)]"
     >
       <div className="flex h-full flex-col justify-between">
         <div>
-          <ShowcaseProjectGallery slides={project.gallerySlides} projectName={project.name} />
+          <ShowcaseProjectGallery
+            slides={project.gallerySlides}
+            projectName={project.name}
+            projectId={project.id}
+          />
 
           <div className="mt-5">
             <h3 className="text-xl font-semibold tracking-tight text-white transition-colors group-hover:text-purple-100">

@@ -25,13 +25,13 @@ export default function AboutPage() {
       <div id="about" className="scroll-mt-28">
         <div className={aboutTopBandClassName}>
           <section
-            className="relative flex flex-col justify-start overflow-x-hidden px-4 pt-2 pb-10 sm:px-8 sm:pt-3 sm:pb-12 lg:min-h-[calc(100vh-4.75rem)] lg:pt-4 lg:pb-8 lg:overflow-hidden"
+            className="relative flex flex-col justify-start overflow-x-hidden px-3 pt-1 pb-8 sm:px-6 sm:pt-3 sm:pb-12 lg:min-h-[calc(100vh-4.75rem)] lg:px-8 lg:pt-4 lg:pb-8 lg:overflow-hidden"
           >
-            <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-start gap-6 sm:gap-8 lg:grid-cols-12 lg:items-center">
-              <AboutHeroLeftColumn className="order-last lg:order-none lg:col-span-7" />
+            <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-start gap-4 sm:gap-8 lg:grid-cols-12 lg:items-center">
+              <AboutHeroLeftColumn className="order-last min-w-0 lg:order-none lg:col-span-7" />
 
               <div
-                className="relative order-first mx-auto flex h-full max-h-[300px] w-full max-w-xs items-end justify-center sm:max-h-[340px] sm:max-w-sm lg:order-none lg:col-span-5 lg:max-h-[520px] lg:max-w-none lg:items-center"
+                className="relative order-first mx-auto flex h-full max-h-[min(42vh,240px)] w-full max-w-[min(100%,280px)] items-end justify-center sm:max-h-[300px] sm:max-w-xs md:max-h-[340px] md:max-w-sm lg:order-none lg:col-span-5 lg:max-h-[520px] lg:max-w-none lg:items-center"
               >
                 <div
                   className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.22),transparent_72%)]"

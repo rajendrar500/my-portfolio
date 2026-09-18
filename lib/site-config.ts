@@ -21,11 +21,9 @@ function resolveSiteUrl(): string {
 export const SITE_URL = resolveSiteUrl();
 
 export const CONTACT_EMAIL = "errajendra56@gmail.com";
+export const GITHUB_PROFILE_URL: string | null = "https://github.com/rajendrar500";
 export const UPWORK_PROFILE_URL: string | null =
-  "https://www.upwork.com/freelancers/surendras36";
-export const GITHUB_PROFILE_URL: string | null = "https://github.com/rajendrar786";
-export const LINKEDIN_PROFILE_URL: string | null = null;
-
+  "https://www.upwork.com/freelancers/~0132a6fa98aeee11cb";
 /** Served from `public/resume.pdf` (copied from `resume/` on build). */
 export const RESUME_PDF_URL = "/resume.pdf";
 export const RESUME_DOWNLOAD_FILENAME = RESUME_SOURCE_FILENAME;
@@ -44,7 +42,6 @@ export const siteConfig = {
   ],
   socials: {
     github: GITHUB_PROFILE_URL,
-    linkedin: LINKEDIN_PROFILE_URL,
     upwork: UPWORK_PROFILE_URL,
   },
 } as const;

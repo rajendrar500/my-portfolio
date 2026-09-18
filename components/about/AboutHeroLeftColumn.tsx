@@ -50,7 +50,7 @@ const gradientAiStack =
 
 export function AboutHeroLeftColumn({ className }: { className?: string }) {
   return (
-    <div className={cn("flex min-h-0 min-w-0 flex-col space-y-4 lg:space-y-5", className)}>
+    <div className={cn("flex min-h-0 min-w-0 flex-col space-y-3 sm:space-y-4 lg:space-y-5", className)}>
       <Reveal delay={0.1}>
         <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-400">
           <span
@@ -63,7 +63,7 @@ export function AboutHeroLeftColumn({ className }: { className?: string }) {
 
       <AboutHeroTypewriterHeadline className="!mb-0 shrink-0" />
 
-      <div className="mt-5 max-w-xl space-y-2.5 sm:mt-6 lg:mt-7 lg:space-y-3">
+      <div className="mt-3 max-w-xl space-y-2 sm:mt-6 lg:mt-7 lg:space-y-3">
         <motion.p
           className={paragraphMotion}
           initial={{ opacity: 0, y: 15 }}

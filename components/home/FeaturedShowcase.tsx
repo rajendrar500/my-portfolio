@@ -8,7 +8,7 @@ export function FeaturedShowcase() {
     <section
       id="projects"
       className={cn(
-        "relative scroll-mt-28 overflow-hidden px-4 pt-8 pb-8 sm:px-8 sm:pt-12 sm:pb-10"
+        "relative scroll-mt-28 overflow-hidden px-0 pt-8 pb-8 sm:pt-12 sm:pb-10"
       )}
     >
       <div
