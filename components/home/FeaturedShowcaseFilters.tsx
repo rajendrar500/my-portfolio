@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   HOME_SHOWCASE_PROJECTS,
   SHOWCASE_FILTER_TABS,
@@ -39,16 +39,6 @@ export function FeaturedShowcaseFilters() {
   const pageStart = safePage * PROJECTS_PER_PAGE;
   const pageProjects = visibleProjects.slice(pageStart, pageStart + PROJECTS_PER_PAGE);
 
-  useEffect(() => {
-    setPage(0);
-  }, [activeFilter]);
-
-  useEffect(() => {
-    if (page > totalPages - 1) {
-      setPage(Math.max(0, totalPages - 1));
-    }
-  }, [page, totalPages]);
-
   return (
     <>
       <div
@@ -64,7 +54,10 @@ export function FeaturedShowcaseFilters() {
               type="button"
               role="tab"
               aria-selected={isActive}
-              onClick={() => setActiveFilter(tab.id)}
+              onClick={() => {
+                setActiveFilter(tab.id);
+                setPage(0);
+              }}
               className={cn(tabBaseClassName, isActive && tabActiveClassName)}
             >
               {tab.label}
@@ -74,12 +67,18 @@ export function FeaturedShowcaseFilters() {
       </div>
 
       <div
-        className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-3 md:gap-8"
+        className="grid grid-cols-1 items-stretch gap-5 sm:gap-6 md:grid-cols-3 md:gap-8"
         aria-live="polite"
         aria-label={`Featured projects, page ${safePage + 1} of ${totalPages}`}
       >
         {pageProjects.map((project) => (
-          <div key={project.id} className="flex h-full min-h-0">
+          <div
+            key={project.id}
+            className={cn(
+              "flex h-full min-h-0 w-full min-w-0",
+              pageProjects.length === 1 && "md:col-start-2"
+            )}
+          >
             <ShowcaseProjectCard project={project} />
           </div>
         ))}
