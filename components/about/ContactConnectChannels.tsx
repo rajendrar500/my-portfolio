@@ -105,7 +105,7 @@ export function ContactConnectChannels() {
 
   return (
     <div className="mt-6 flex flex-col gap-3">
-      {CHANNELS.map((channel) => (
+      {CHANNELS.filter((channel) => channel.href).map((channel) => (
         <ConnectCard key={channel.label} {...channel} reduceMotion={reduceMotion} />
       ))}
     </div>

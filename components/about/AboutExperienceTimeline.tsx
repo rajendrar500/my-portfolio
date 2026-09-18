@@ -189,13 +189,15 @@ export function AboutExperienceTimeline() {
                 </span>
 
                 <h3 className="mb-2 text-xl font-bold text-white transition-colors group-hover:text-purple-200">
-                  {ABOUT_EDUCATION.degree}
+                  {ABOUT_EDUCATION.degree || ABOUT_EDUCATION.institution}
                 </h3>
 
-                <p className="mb-4 flex items-center gap-2 text-sm font-medium text-purple-300">
-                  <Building2 className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  {ABOUT_EDUCATION.institution}
-                </p>
+                {ABOUT_EDUCATION.degree ? (
+                  <p className="mb-4 flex items-center gap-2 text-sm font-medium text-purple-300">
+                    <Building2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    {ABOUT_EDUCATION.institution}
+                  </p>
+                ) : null}
 
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {ABOUT_EDUCATION_SUBJECTS.map((subject) => (
