@@ -1,5 +1,5 @@
 /**
- * Generates resume PDF via HTML + headless Chrome (same pipeline as the reference résumé).
+ * Generates ATS-friendly résumé PDF (HTML + headless Chrome).
  * Run: npm run generate:resume
  */
 import fs from "node:fs";
@@ -8,54 +8,54 @@ import { fileURLToPath } from "node:url";
 import puppeteer from "puppeteer";
 import {
   RESUME_SOURCE_FILENAME,
+  resumeAchievements,
+  resumeAiDevOps,
   resumeEducation,
   resumeExperience,
-  resumeProfile,
+  resumeHeader,
   resumeProjects,
-  resumeSkillLines,
+  resumeSkillGroups,
+  resumeSummary,
 } from "../lib/resume-content";
 import { renderResumeHtml } from "./resume/render-resume-html";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const root = path.join(__dirname, "..");
+const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 async function main() {
   const html = renderResumeHtml({
-    profile: resumeProfile,
-    skillLines: resumeSkillLines,
+    header: resumeHeader,
+    summary: resumeSummary,
+    skillGroups: resumeSkillGroups,
     experience: resumeExperience,
     projects: resumeProjects,
+    achievements: resumeAchievements,
+    aiDevOps: resumeAiDevOps,
     education: resumeEducation,
   });
 
   const tmpHtml = path.join(root, "scripts", ".resume-preview.html");
-  fs.writeFileSync(tmpHtml, html);
+  fs.writeFileSync(tmpHtml, html, "utf8");
 
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
+  await page.setContent(html, { waitUntil: "networkidle0" });
+  const pdfBuffer = await page.pdf({
+    format: "A4",
+    printBackground: true,
+    margin: { top: "0.48in", right: "0.52in", bottom: "0.48in", left: "0.52in" },
   });
+  await browser.close();
 
-  try {
-    const page = await browser.newPage();
-    await page.setContent(html, { waitUntil: "networkidle0" });
-    const pdfBuffer = await page.pdf({
-      format: "A4",
-      printBackground: true,
-      margin: { top: "14mm", right: "16mm", bottom: "14mm", left: "16mm" },
-    });
+  const resumeDir = path.join(root, "resume");
+  fs.mkdirSync(resumeDir, { recursive: true });
+  const sourcePath = path.join(resumeDir, RESUME_SOURCE_FILENAME);
+  fs.writeFileSync(sourcePath, pdfBuffer);
 
-    const publicPath = path.join(root, "public", "resume.pdf");
-    const sourcePath = path.join(root, "resume", RESUME_SOURCE_FILENAME);
-    fs.mkdirSync(path.dirname(publicPath), { recursive: true });
-    fs.mkdirSync(path.dirname(sourcePath), { recursive: true });
-    fs.writeFileSync(publicPath, pdfBuffer);
-    fs.writeFileSync(sourcePath, pdfBuffer);
-    console.log(`Wrote ${publicPath} (${pdfBuffer.length} bytes)`);
-    console.log(`Wrote ${sourcePath}`);
-  } finally {
-    await browser.close();
-  }
+  const publicPath = path.join(root, "public", "resume.pdf");
+  fs.writeFileSync(publicPath, pdfBuffer);
+
+  console.log(`Wrote ${sourcePath} (${pdfBuffer.length} bytes)`);
+  console.log(`Wrote ${publicPath}`);
 }
 
 main().catch((err) => {

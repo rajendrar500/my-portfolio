@@ -30,7 +30,6 @@ const FILE_ROLLOUT = [
   "lib/about-content.ts",
   "lib/home-content.ts",
   "lib/portrait.ts",
-  "lib/resume-content.ts",
   "app/globals.css",
   "app/layout.tsx",
   "app/page.tsx",
@@ -81,9 +80,6 @@ const FILE_ROLLOUT = [
   "app/contact/page.tsx",
   "app/not-found.tsx",
   "app/opengraph-image.tsx",
-  "scripts/copy-resume.mjs",
-  "scripts/generate-resume-pdf.ts",
-  "scripts/resume/render-resume-html.ts",
   "scripts/replay-git-history.mjs",
   "public/images/surendra-profile-hero.png",
   "public/images/dashboard.png",
@@ -96,8 +92,6 @@ const FILE_ROLLOUT = [
   "public/images/projects/algocyte/hero.jpg",
   "public/images/projects/algocyte/proxima-array.jpg",
   "public/images/projects/algocyte/dashboard.jpg",
-  "resume/Rajendra_R_Senior_Full_Stack_Engineer_Resume.pdf",
-  "public/resume.pdf",
 ];
 
 const COMMIT_MESSAGES = [
@@ -113,11 +107,10 @@ const COMMIT_MESSAGES = [
   "feat: project cards and image gallery",
   "feat: projects and InterviewPilot case study",
   "feat: contact section and form",
-  "feat: resume PDF pipeline",
   "chore: add project and profile assets",
   "chore: polish styles and content",
   "fix: mobile layout and spacing",
-  "fix: production build and resume copy",
+  "fix: production build",
   "chore: content updates for portfolio",
 ];
 

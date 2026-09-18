@@ -25,10 +25,6 @@ export const UPWORK_PROFILE_URL: string | null =
 export const GITHUB_PROFILE_URL: string | null = "https://github.com/rajendrar56";
 export const LINKEDIN_PROFILE_URL: string | null =
   "https://www.linkedin.com/in/surendraa-s-986715428/";
-/** Served from `public/resume.pdf` (copied from `resume/` on build). */
-export const RESUME_PDF_URL = "/resume.pdf";
-export const RESUME_DOWNLOAD_FILENAME =
-  "Rajendra_R_Senior_Full_Stack_Engineer_Resume.pdf";
 
 export const siteConfig = {
   name: "Rajendra R.",
