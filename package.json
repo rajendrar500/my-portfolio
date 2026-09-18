@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run copy:resume && next build",
+    "copy:resume": "node scripts/copy-resume.mjs",
     "start": "next start",
     "lint": "eslint",
     "generate:resume": "tsx scripts/generate-resume-pdf.ts"
