@@ -11,7 +11,9 @@ import {
   aboutHeroTechPillAccentClassNames,
   aboutHeroTechPillBaseClassName,
 } from "@/components/about/aboutStyles";
+import { IconDownload } from "@/components/icons";
 import { ABOUT_HERO_FOCUS_BADGES, ABOUT_HERO_STATS } from "@/lib/about-content";
+import { RESUME_DOWNLOAD_FILENAME, RESUME_PDF_URL } from "@/lib/site-config";
 import { cn } from "@/lib/cn";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -71,10 +73,10 @@ export function AboutHeroLeftColumn({ className }: { className?: string }) {
           <span className={gradientYears}>8+ years</span> of professional software development
           experience across{" "}
           <span className="font-semibold text-zinc-100">
-            Ruby on Rails, React JS, TypeScript, Node.js, Python (Flask, FastAPI, Django)
+            Ruby on Rails, Python (FastAPI, Flask), React.js, PostgreSQL, and AWS
           </span>
           ,{" "}
-          <span className={gradientAiStack}>DevOps, and production AI/LLMs</span>.
+          <span className={gradientAiStack}>microservices, CI/CD, and AI/GenAI</span>.
         </motion.p>
         <motion.p
           className={paragraphMotion}
@@ -141,6 +143,14 @@ export function AboutHeroLeftColumn({ className }: { className?: string }) {
           >
             Let&apos;s Build Together
           </Link>
+          <a
+            href={RESUME_PDF_URL}
+            download={RESUME_DOWNLOAD_FILENAME}
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 text-sm font-semibold text-zinc-300 transition-all duration-300 hover:border-purple-500/30 hover:bg-white/[0.06] lg:h-11 lg:px-6 [&>svg]:shrink-0"
+          >
+            <IconDownload width={16} height={16} strokeWidth={2} />
+            Download Resume
+          </a>
         </div>
       </Reveal>
     </div>
